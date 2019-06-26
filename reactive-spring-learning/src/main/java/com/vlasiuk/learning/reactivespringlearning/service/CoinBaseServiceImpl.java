@@ -21,7 +21,7 @@ public class CoinBaseServiceImpl implements CoinBaseService {
   @Override
   public Mono<CoinBaseResponse> getCryptoPrice(String priceName) {
     return webClient.get().uri("https://api.coinbase.com/v2/prices/{crypto}/buy", priceName)
-//    return webClient.get().uri("https://developers.coinbase.com/api/v2/prices/{crypto}/bye", priceName)
+//    return webClient.get().uri("https://developers.coinbase.com/api/v2/prices/{crypto}/buy", priceName)
         .exchange()
         .flatMap(clientResponse -> clientResponse.bodyToMono(CoinBaseResponse.class));
   }
